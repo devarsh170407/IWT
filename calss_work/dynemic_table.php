@@ -8,3 +8,14 @@
     $cols = $_REQUEST['txtcol'];
     echo $rows.' '.$cols;
 ?>
+<table border="1px">
+<?php
+    for($r=0;$r<$rows;$r++){
+        echo"<tr>";
+        for ($c=0; $c < $cols ; $c++) { 
+            echo"<td><input/></td>";
+        }
+        echo"</tr>";
+    }
+?>
+</table>

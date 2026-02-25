@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 
 $host = "localhost";
 $dbuser = "root";
-$dbpass = "";   // leave empty for XAMPP
+$dbpass = "";   
 $dbname = "ecom_app_db";
 
 $conn = mysqli_connect($host, $dbuser, $dbpass, $dbname);

@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <input type="number" palceholder="Enter First number" id="txtfirst" />
+    <input type="number" palceholder="Enter Second number" id="txtsecond" />
+    <button type="button" onclick="myfun('*')"> * </button>
+    <button type="button" onclick="myfun('-')"> - </button>
+
+    <p id="result"></p>
     <script>
-        let a = 10
-        let b = 20
-        console.log(a + b)
+        function myfun(op) {
+            let f = document.getElementById('txtfirst').value
+            let s = document.getElementById('txtsecond').value
+            console.log(op);
 
-        console.log(arr[0])
-        console.log(arr[3][2])
-        console.log(typeof arr)
-        console.log(typeof arr[0])
-        console.log(typeof arr[3][2])
+            let html = ''
+            let para = document.getElementById('result')
+            switch (op) {
+                case '*': html = '' + (f * s); break;
+                case '-': html = '' + (f - s); break;
+                default: html = 'invalid input'
+            }
+            para.innerHTML = html
 
+        }
     </script>
 </body>
+
 </html>

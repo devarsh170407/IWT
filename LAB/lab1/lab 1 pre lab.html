@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login UI</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left {
+    flex: 1;  
+    background:
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url("https://static.vecteezy.com/system/resources/thumbnails/046/759/309/small/metal-robot-on-black-background-copyspace-photo.jpg");
+    background-size: cover;
+    background-position: left center;
+    position: relative;
+    color: white;
+}
+
+.left-text {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    font-size: 28px;
+    max-width: 300px;
+}
+
+.right {
+    flex: 1;  
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-box {
+    width: 70%;
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #ddd;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: #777;
+}
+
+.divider span {
+    flex: 1;
+    height: 1px;
+    background: #ccc;
+}
+
+.divider p {
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    background: #eee;
+    margin: 10px 0;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.icon {
+    width: 50px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+}
+
+.apple { background: black; }
+.google { background: #4a6cf7; }
+.facebook { background: #3b5998; }
+
+.text {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+}
+
+.social-btn:hover {
+    background: #ddd;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left {
+        height: 40vh;
+    }
+
+    .right {
+        height: 60vh;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <div class="left-text">
+            Your TED account unlocks a world of ideas
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="form-box">
+            <h2>Sign in or create your account below</h2>
+
+            <input type="email" placeholder="Email address">
+            <button class="btn">Continue</button>
+
+            <div class="divider">
+                <span></span>
+                <p>Or continue with</p>
+                <span></span>
+            </div>
+
+            <div class="social-btn">
+                <div class="icon apple">
+                    <i class="fa-brands fa-apple"></i>
+                </div>
+                <div class="text">Continue with Apple</div>
+            </div>
+
+            <div class="social-btn">
+                <div class="icon google">
+                    <i class="fa-brands fa-google"></i>
+                </div>
+                <div class="text">Continue with Google</div>
+            </div>
+
+            <div class="social-btn">
+                <div class="icon facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <div class="text">Continue with Facebook</div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

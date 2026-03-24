@@ -12,4 +12,3 @@
 </table>
 
 
-write php scipt which will display 

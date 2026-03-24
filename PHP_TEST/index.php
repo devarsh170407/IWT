@@ -1,3 +1,4 @@
+
 <?php
  if (isset($_REQUEST['btnCheck']))   {
    $sum= 0;
@@ -10,7 +11,7 @@ echo $sum." ".($sum/4);
     <!-- user input -->
  <form method="get">
     <?php for($i = 1;$i<5;$i++){
-    echo "<input type='number' name='m_$i'/><br/>";
+    echo "<label for='m_$i'>mark $i</label><input id='m_$i' type='number' name='m_$i'/><br/>";
     }?>
     <button type="submit" name="btnCheck">Check</button>
 

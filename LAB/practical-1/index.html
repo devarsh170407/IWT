@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjivani Restaurant | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>🍽️ Sanjivani Restaurant</h1>
+        <div id="user-actions">
+            <a href="login.html" class="btn" style="padding: 0.5rem 1rem; width: auto; margin: 0;">Logout</a>
+        </div>
+    </nav>
+
+    <div class="section">
+        <div class="hero">
+            <h1>Sanjivani Restaurant</h1>
+            <p>Traditional Flavors with a Modern Touch.</p>
+        </div>
+
+        <h2 style="margin-bottom: 2.5rem; border-left: 6px solid var(--primary-color); padding-left: 20px; font-weight: 700;">🌟 Our 12 Specialties</h2>
+        
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=500" class="menu-img" alt="Pizza">
+                <div class="menu-info"><h3>Margherita Pizza</h3><p>Thin crust, original mozzarella.</p><span class="price-tag">₹349</span></div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=500" class="menu-img" alt="Burger">
+                <div class="menu-info"><h3>महाराजा Burger</h3><p>Veggie patty, extra cheese delights.</p><span class="price-tag">₹189</span></div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&q=80&w=500" class="menu-img" alt="Pasta">
+                <div class="menu-info"><h3>Alfredo Pasta</h3><p>Creamy white sauce with herbs.</p><span class="price-tag">₹299</span></div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&q=80&w=500" class="menu-img" alt="Sandwich">
+                <div class="menu-info"><h3>Club Sandwich</h3><p>Grilled triple layer specialty.</p><span class="price-tag">₹149</span></div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&q=80&w=500" class="menu-img" alt="Paneer Tikka">
+                <div class="menu-info"><h3>Paneer Tikka</h3><p>Spiced paneer cubes grilled.</p><span class="price-tag">₹210</span></div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80&w=500" class="menu-img" alt="Dal Makhani">
+                <div class="menu-info"><h3>Dal Makhani</h3><p>Classic slow-cooked lentils.</p><span class="price-tag">₹180</span></div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&q=80&w=500" class="menu-img" alt="Biryani">
+                <div class="menu-info"><h3>Veg Biryani</h3><p>Fragrant rice with fresh vegetables.</p><span class="price-tag">₹240</span></div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&q=80&w=500" class="menu-img" alt="Chole Bhature">
+                <div class="menu-info"><h3>Chole Bhature</h3><p>Punjabi spicy chickpea curry.</p><span class="price-tag">₹160</span></div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=500" class="menu-img" alt="Dosa">
+                <div class="menu-info"><h3>Masala Dosa</h3><p>Crispy South Indian divine delight.</p><span class="price-tag">₹120</span></div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&q=80&w=500" class="menu-img" alt="Noodles">
+                <div class="menu-info"><h3>Hakka Noodles</h3><p>Wok-tossed noodles with veggies.</p><span class="price-tag">₹150</span></div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=500" class="menu-img" alt="Spring Roll">
+                <div class="menu-info"><h3>Spring Rolls</h3><p>Crispy fried vegetable rolls.</p><span class="price-tag">₹110</span></div>
+            </div>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&q=80&w=500" class="menu-img" alt="Naan">
+                <div class="menu-info"><h3>Butter Garlic Naan</h3><p>Fresh oven-baked Indian bread.</p><span class="price-tag">₹45</span></div>
+            </div>
+        </div>
+
+        <div class="order-section">
+            <div class="order-controls">
+                <h2>🛍️ Create Your Order</h2>
+                <div class="input-group">
+                    <label>Choice of Dish</label>
+                    <select id="dishSelect">
+                        <option value="Margherita Pizza">Margherita Pizza (₹349)</option>
+                        <option value="महाराजा Burger">महाराजा Burger (₹189)</option>
+                        <option value="Alfredo Pasta">Alfredo Pasta (₹299)</option>
+                        <option value="Club Sandwich">Club Sandwich (₹149)</option>
+                        <option value="Paneer Tikka">Paneer Tikka (₹210)</option>
+                        <option value="Dal Makhani">Dal Makhani (₹180)</option>
+                        <option value="Veg Biryani">Veg Biryani (₹240)</option>
+                        <option value="Chole Bhature">Chole Bhature (₹160)</option>
+                        <option value="Masala Dosa">Masala Dosa (₹120)</option>
+                        <option value="Hakka Noodles">Hakka Noodles (₹150)</option>
+                        <option value="Spring Rolls">Spring Rolls (₹110)</option>
+                        <option value="Butter Garlic Naan">Butter Garlic Naan (₹45)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Desired Quantity</label>
+                    <input type="number" id="dishQty" value="1" min="1">
+                </div>
+                <button class="btn" onclick="addToOrder()">+ Add to Order</button>
+            </div>
+
+            <div class="bill-receipt">
+                <div class="receipt-header">
+                    <h3 style="font-weight: 700;">FINAL RECEIPT</h3>
+                    <p style="font-size: 0.9rem; color: #666;">Sanjivani Restaurant</p>
+                </div>
+                <div id="receiptItems">
+                    <p class="empty-cart-msg">No items in your order yet.</p>
+                </div>
+                <div id="receiptSummary" style="display:none;">
+                    <div class="grand-total">
+                        <span>TOTAL AMOUNT</span>
+                        <span id="grandTotalVal">₹0</span>
+                    </div>
+                    <div class="receipt-actions">
+                        <button class="btn confirm-btn" onclick="alert('Order Placed Successfully! Your delicious food is being prepared.')">Confirm Final Order</button>
+                        <button class="btn clear-btn" onclick="clearOrder()">Clear Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        const prices = {
+            "Margherita Pizza": 349,
+            "महाराजा Burger": 189,
+            "Alfredo Pasta": 299,
+            "Club Sandwich": 149,
+            "Paneer Tikka": 210,
+            "Dal Makhani": 180,
+            "Veg Biryani": 240,
+            "Chole Bhature": 160,
+            "Masala Dosa": 120,
+            "Hakka Noodles": 150,
+            "Spring Rolls": 110,
+            "Butter Garlic Naan": 45
+        };
+
+        function addToOrder() {
+            const name = document.getElementById('dishSelect').value;
+            const qty = parseInt(document.getElementById('dishQty').value);
+
+            if(qty < 1 || isNaN(qty)) {
+                alert("Please enter a valid quantity!");
+                return;
+            }
+
+            const itemTotal = prices[name] * qty;
+            
+            const existing = cart.find(i => i.name === name);
+            if(existing) {
+                existing.qty += qty;
+                existing.total += itemTotal;
+            } else {
+                cart.push({ name, qty, total: itemTotal });
+            }
+
+            updateReceiptUI();
+        }
+
+        function updateReceiptUI() {
+            const itemsArea = document.getElementById('receiptItems');
+            const summaryArea = document.getElementById('receiptSummary');
+            const totalVal = document.getElementById('grandTotalVal');
+
+            if(!itemsArea || !summaryArea || !totalVal) return;
+
+            if(cart.length === 0) {
+                itemsArea.innerHTML = '<p class="empty-cart-msg">No items in your order yet.</p>';
+                summaryArea.style.display = 'none';
+                return;
+            }
+
+            summaryArea.style.display = 'block';
+            let grandTotal = 0;
+            let itemsHtml = '';
+
+            cart.forEach(item => {
+                grandTotal += item.total;
+                itemsHtml += `
+                    <div class="cart-item">
+                        <span><strong>${item.name}</strong> x ${item.qty}</span>
+                        <span>₹${item.total}</span>
+                    </div>
+                `;
+            });
+
+            itemsArea.innerHTML = itemsHtml;
+            totalVal.innerText = `₹${grandTotal}`;
+        }
+
+        function clearOrder() {
+            cart = [];
+            updateReceiptUI();
+        }
+    </script>
+</body>
+</html>

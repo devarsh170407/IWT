@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sanjivani Restaurant</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+<h1>🍽️ Sanjivani Restaurant</h1>
+</nav>
+
+<!-- LOGIN -->
+<div id="login" class="section active">
+<div class="auth-container">
+<h2>Welcome Back</h2>
+
+<div class="input-group">
+<label>Username</label>
+<input type="text">
+</div>
+
+<div class="input-group">
+<label>Password</label>
+<input type="password">
+</div>
+
+<button class="btn" onclick="goToHome()">Login</button>
+<p style="text-align:center;">New User? <a onclick="goToRegister()">Register</a></p>
+
+</div>
+</div>
+
+<!-- REGISTER -->
+<div id="register" class="section">
+<div class="auth-container">
+
+<h2>Sign Up</h2>
+
+<input type="text" placeholder="Full Name">
+<input type="text" placeholder="Username">
+<input type="password" placeholder="Password">
+
+<button class="btn" onclick="goToLogin()">Register</button>
+
+</div>
+</div>
+
+<!-- HOME -->
+<div id="home" class="section">
+
+<div class="hero">
+<h1>Sanjivani Restaurant</h1>
+<p>Traditional Flavors with a Modern Touch</p>
+</div>
+
+<h2>Our 12 Specialties</h2>
+
+<div class="menu-grid">
+
+<div class="menu-card"><div class="menu-info">Pizza ₹349</div></div>
+<div class="menu-card"><div class="menu-info">Burger ₹189</div></div>
+<div class="menu-card"><div class="menu-info">Pasta ₹299</div></div>
+<div class="menu-card"><div class="menu-info">Sandwich ₹149</div></div>
+<div class="menu-card"><div class="menu-info">Paneer ₹210</div></div>
+<div class="menu-card"><div class="menu-info">Dal ₹180</div></div>
+
+</div>
+
+<div class="order-section">
+
+<div class="order-controls">
+
+<select id="dishSelect">
+<option value="Pizza">Pizza</option>
+<option value="Burger">Burger</option>
+<option value="Pasta">Pasta</option>
+</select>
+
+<input type="number" id="dishQty" value="1">
+
+<button class="btn" onclick="addToOrder()">Add</button>
+
+</div>
+
+<div class="bill-receipt">
+
+<div id="receiptItems">No items</div>
+
+<div class="grand-total">
+<span>Total</span>
+<span id="grandTotalVal">₹0</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let cart=[];
+
+const prices={
+Pizza:349,
+Burger:189,
+Pasta:299
+};
+
+function goToHome(){
+document.getElementById('home').classList.add('active');
+document.getElementById('login').classList.remove('active');
+document.getElementById('register').classList.remove('active');
+}
+
+function goToRegister(){
+document.getElementById('register').classList.add('active');
+document.getElementById('login').classList.remove('active');
+}
+
+function goToLogin(){
+document.getElementById('login').classList.add('active');
+document.getElementById('register').classList.remove('active');
+}
+
+function addToOrder(){
+
+let name=document.getElementById('dishSelect').value;
+let qty=parseInt(document.getElementById('dishQty').value);
+
+let total=prices[name]*qty;
+
+cart.push({name,qty,total});
+
+update();
+}
+
+function update(){
+let html="";
+let total=0;
+
+cart.forEach(i=>{
+total+=i.total;
+html+=`${i.name} x ${i.qty} = ₹${i.total}<br>`;
+});
+
+document.getElementById("receiptItems").innerHTML=html;
+document.getElementById("grandTotalVal").innerText="₹"+total;
+}
+
+</script>
+
+</body>
+</html>

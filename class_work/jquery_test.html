@@ -1,0 +1,27 @@
+<!-- create page which will change color of H1 tag using j query  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("h1").css("color", "#0088ff");
+            $("#test").css("color", "#00ffff");
+            $(".mycls").css("color", "#ff2288");
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Hello, World!</h1>
+    <h1 id="test">Hello, World!</h1>
+    <h1 class="mycls">Hello, World!</h1>
+    <h1 class="mycls">Hello, World!</h1>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UNO – Card Game</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Background blobs -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <!-- ══ START SCREEN ══════════════════════════════════════════════ -->
+  <div id="startScreen" class="screen active">
+    <div class="glass-panel start-panel">
+      <div class="uno-logo">UNO</div>
+      <p class="tagline">Play against the AI · First to empty hand wins!</p>
+      <div class="rules-grid">
+        <div class="rule-item">🎨 Match color <em>or</em> number</div>
+        <div class="rule-item">⚡ Action cards attack</div>
+        <div class="rule-item">🃏 Wild = change color</div>
+        <div class="rule-item">📢 Say UNO on last card!</div>
+      </div>
+      <button class="btn-start" id="startBtn">Deal Cards</button>
+    </div>
+  </div>
+
+  <!-- ══ GAME SCREEN ════════════════════════════════════════════════ -->
+  <div id="gameScreen" class="screen hidden">
+
+    <!-- AI hand (top) -->
+    <div class="player-area ai-area" id="aiArea">
+      <div class="player-info">
+        <span class="player-label" id="aiLabel">🤖 AI</span>
+        <span class="card-count" id="aiCount">7 cards</span>
+        <span class="uno-badge hidden" id="aiUnoBadge">UNO!</span>
+      </div>
+      <div class="hand" id="aiHand"></div>
+    </div>
+
+    <!-- Center table -->
+    <div class="table-area">
+      <div class="table-left">
+        <!-- Draw pile -->
+        <div class="pile-wrap">
+          <div class="card card-back pile-card" id="drawPile" title="Draw a card">
+            <span class="card-back-text">UNO</span>
+          </div>
+          <span class="pile-label">Draw</span>
+        </div>
+      </div>
+
+      <div class="table-center">
+        <div class="current-color-ring" id="colorRing"></div>
+        <div class="card" id="discardPile"></div>
+      </div>
+
+      <div class="table-right">
+        <!-- Info panel -->
+        <div class="info-panel">
+          <div class="turn-indicator" id="turnIndicator">Your Turn</div>
+          <div class="direction-indicator" id="directionIndicator">▶ Normal</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Player hand (bottom) -->
+    <div class="player-area human-area" id="humanArea">
+      <div class="player-info">
+        <span class="player-label">🙂 You</span>
+        <span class="card-count" id="humanCount">7 cards</span>
+        <span class="uno-badge hidden" id="humanUnoBadge">UNO!</span>
+        <button class="btn-uno hidden" id="unoBtn">📢 UNO!</button>
+      </div>
+      <div class="hand" id="humanHand"></div>
+    </div>
+
+  </div>
+
+  <!-- ══ COLOR CHOOSER ══════════════════════════════════════════════ -->
+  <div id="colorChooser" class="overlay hidden">
+    <div class="chooser-panel glass-panel">
+      <h3>Choose a Color</h3>
+      <div class="color-grid">
+        <button class="color-swatch red"    data-color="red">🔴 Red</button>
+        <button class="color-swatch green"  data-color="green">🟢 Green</button>
+        <button class="color-swatch blue"   data-color="blue">🔵 Blue</button>
+        <button class="color-swatch yellow" data-color="yellow">🟡 Yellow</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ WIN SCREEN ═════════════════════════════════════════════════ -->
+  <div id="winScreen" class="overlay hidden">
+    <div class="glass-panel win-panel">
+      <div class="win-emoji" id="winEmoji">🏆</div>
+      <h2 id="winTitle">You Win!</h2>
+      <p id="winSub">Amazing! You beat the AI!</p>
+      <div class="win-stats">
+        <div class="stat"><span id="statCards">--</span><em>Cards played</em></div>
+        <div class="stat"><span id="statDrawn">--</span><em>Cards drawn</em></div>
+      </div>
+      <div class="win-actions">
+        <button class="btn-start" id="playAgainBtn">▶ Play Again</button>
+        <button class="btn-menu"  id="menuBtn">☰ Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ LOG ════════════════════════════════════════════════════════ -->
+  <div class="log-strip" id="logStrip">
+    <span id="logText">Get ready to play!</span>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

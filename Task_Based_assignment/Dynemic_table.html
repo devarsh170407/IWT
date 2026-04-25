@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Table</title>
+</head>
+
+<body>
+
+<h2>Create Table</h2>
+
+Enter Rows: <input type="number" id="rows"><br><br>
+Enter Columns: <input type="number" id="cols"><br><br>
+
+<button onclick="createTable()">Create Table</button>
+
+<br><br>
+
+<form onsubmit="return checkEmpty()">
+    <div id="table"></div>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+
+function createTable() {
+    var r = document.getElementById("rows").value;
+    var c = document.getElementById("cols").value;
+
+    var output = "<table border='1'>";
+
+    for (var i = 0; i < r; i++) {
+        output += "<tr>";
+        for (var j = 0; j < c; j++) {
+            output += "<td><input type='text' class='box'></td>";
+        }
+        output += "</tr>";
+    }
+
+    output += "</table>";
+
+    document.getElementById("table").innerHTML = output;
+}
+
+function checkEmpty() {
+    var inputs = document.getElementsByClassName("box");
+
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].value == "") {
+            alert("Please fill all fields!");
+            return false;
+        }
+    }
+
+    return true;
+}
+
+</script>
+
+</body>
+</html>

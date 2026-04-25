@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IWT Quiz App</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e6f0ff;
+            text-align: center;
+        }
+
+        .quiz-box {
+            background: white;
+            width: 420px;
+            margin: auto;
+            padding: 20px;
+            margin-top: 60px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            color: #003366;
+        }
+
+        .option {
+            text-align: left;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 10px;
+            border: none;
+            background-color: #0066cc;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #004080;
+        }
+
+        #result {
+            color: green;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="quiz-box">
+
+    <h2 id="question"></h2>
+
+    <div id="options"></div>
+
+    <button onclick="prevQuestion()">Previous</button>
+    <button onclick="nextQuestion()">Next</button>
+
+    <h3 id="result"></h3>
+
+</div>
+
+<script>
+
+var questions = [
+    {q:"1. HTML stands for?", a:["Hyper Text Markup Language","High Tech Machine Language","Home Tool Markup Language"], correct:0},
+    {q:"2. CSS is used for?", a:["Structure","Styling","Database"], correct:1},
+    {q:"3. JavaScript is used for?", a:["Styling","Database","Interactivity"], correct:2},
+    {q:"4. &lt;p&gt; tag is used for?", a:["Paragraph","Heading","Link"], correct:0},
+    {q:"5. HTTP stands for?", a:["Hyper Text Transfer Protocol","High Transfer Text Protocol","Hyper Tool Transfer"], correct:0},
+    {q:"6. Which is backend language?", a:["HTML","CSS","PHP"], correct:2},
+    {q:"7. MySQL is?", a:["Database","Language","Server"], correct:0},
+    {q:"8. &lt;a&gt; tag is used for?", a:["Image","Link","Table"], correct:1},
+    {q:"9. JavaScript runs in?", a:["Browser","Database","Server only"], correct:0},
+    {q:"10. CSS full form?", a:["Color Style Sheet","Cascading Style Sheet","Creative Style Sheet"], correct:1}
+];
+
+var index = 0;
+var answers = new Array(questions.length).fill(null);
+
+function loadQuestion() {
+    document.getElementById("result").innerHTML = "";
+
+    var q = questions[index];
+    document.getElementById("question").innerHTML = q.q;
+
+    var optionsHTML = "";
+
+    for (var i = 0; i < q.a.length; i++) {
+        var checked = (answers[index] == i) ? "checked" : "";
+        optionsHTML += "<div class='option'><input type='radio' name='opt' value='"+i+"' "+checked+"> " + q.a[i] + "</div>";
+    }
+
+    document.getElementById("options").innerHTML = optionsHTML;
+}
+
+function nextQuestion() {
+    var selected = document.querySelector('input[name="opt"]:checked');
+
+    if (selected) {
+        answers[index] = parseInt(selected.value);
+    }
+
+    if (index < questions.length - 1) {
+        index++;
+        loadQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function prevQuestion() {
+    var selected = document.querySelector('input[name="opt"]:checked');
+
+    if (selected) {
+        answers[index] = parseInt(selected.value);
+    }
+
+    if (index > 0) {
+        index--;
+        loadQuestion();
+    }
+}
+
+function showResult() {
+    var score = 0;
+
+    for (var i = 0; i < questions.length; i++) {
+        if (answers[i] == questions[i].correct) {
+            score++;
+        }
+    }
+
+    document.getElementById("question").innerHTML = "Quiz Completed!";
+    document.getElementById("options").innerHTML = "";
+    document.getElementById("result").innerHTML = "Your Score: " + score + "/10";
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    background: #f5f5f5;
+}
+
+header {
+    background: blue;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+section {
+    background: white;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 7px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+button {
+    background: blue;
+    color: white;
+    border: none;
+}
+
+footer {
+    background: blue;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+
+main {
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+}
+
+section {
+    padding: 50px;
+    border-radius: 10px;
+    flex: 1;
+    box-shadow: 0 0 10px gray;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+
+
+/* media queary */
+
+@media (max-width: 768px) {
+
+    main {
+        flex-direction: column;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    section {
+        margin: 10px;
+        padding: 45px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+}
+
+
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+input:focus, textarea:focus, select:focus {
+    border: 2px solid blue;
+    outline: none;
+}
+
+button {
+    padding: 10px;
+    background: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: darkblue;
+    transform: scale(1.1);
+}

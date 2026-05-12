@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Priority Task Manager</h1>
+        <p>Marwadi University - Faculty of Engineering & Technology</p>
+    </header>
+
+    <main>
+        <section class="task-form">
+            <h2>Add New Task</h2>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="title">Task Title</label>
+                    <input type="text" id="title" required>
+                    <span class="error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="priority">Priority</label>
+                    <select id="priority" required>
+                        <option value="">Select Priority</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                    <span class="error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="dueDate">Due Date</label>
+                    <input type="date" id="dueDate" required>
+                    <span class="error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="3"></textarea>
+                    <span class="error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" required>
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                    <span class="error"></span>
+                </div>
+
+                <button type="submit" id="addBtn">Add Task</button>
+                <button type="button" id="resetBtn">Reset Form</button>
+            </form>
+        </section>
+
+        <section class="result-section">
+            <h2>Latest Task</h2>
+            <div id="result" class="result-card">
+                <p id="message">No tasks added yet. Add your first task above.</p>
+            </div>
+        </section>
+
+        <section class="task-list-section">
+            <h2>Task List</h2>
+            <input type="text" id="searchBox" placeholder="Search by title or priority...">
+            <table id="taskTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Priority</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Added On</th>
+                    </tr>
+                </thead>
+                <tbody id="taskBody"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Marwadi University | Internet & Web Technology Practical Exam</p>
+    </footer>
+
+    <!-- XML Read/Write Helper Functions (pre-included as per exam requirement) -->
+    <script>
+        // Read tasks from tasks.xml
+        async function loadTasksFromXML() {
+            try {
+                const response = await fetch('tasks.xml');
+                const xmlText = await response.text();
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+
+                const tasks = [];
+                const taskNodes = xmlDoc.getElementsByTagName("task");
+
+                for (let node of taskNodes) {
+                    tasks.push({
+                        id: node.getAttribute("id"),
+                        title: node.querySelector("title").textContent,
+                        priority: node.querySelector("priority").textContent,
+                        dueDate: node.querySelector("dueDate").textContent,
+                        description: node.querySelector("description").textContent,
+                        status: node.querySelector("status").textContent,
+                        addedOn: node.querySelector("addedOn").textContent
+                    });
+                }
+                return tasks;
+            } catch (error) {
+                console.error("Error loading XML:", error);
+                return [];
+            }
+        }
+
+        // Write tasks to XML (downloads as tasks.xml)
+        function exportTasksToXML(tasks) {
+            let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<tasks>\n`;
+
+            tasks.forEach(task => {
+                xml += `  <task id="${task.id}">\n`;
+                xml += `    <title>${escapeXml(task.title)}</title>\n`;
+                xml += `    <priority>${task.priority}</priority>\n`;
+                xml += `    <dueDate>${task.dueDate}</dueDate>\n`;
+                xml += `    <description>${escapeXml(task.description || '')}</description>\n`;
+                xml += `    <status>${task.status}</status>\n`;
+                xml += `    <addedOn>${task.addedOn}</addedOn>\n`;
+                xml += `  </task>\n`;
+            });
+
+            xml += `</tasks>`;
+
+            const blob = new Blob([xml], { type: 'text/xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'tasks.xml';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Helper to escape XML
+        function escapeXml(unsafe) {
+            return unsafe.replace(/[<>&'"]/g, c => {
+                switch (c) {
+                    case '<': return '&lt;';
+                    case '>': return '&gt;';
+                    case '&': return '&amp;';
+                    case "'": return '&apos;';
+                    case '"': return '&quot;';
+                }
+            });
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
